@@ -1,14 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Inject } from '@nestjs/common';
+import { PrismaServiceExtended } from './app.module';
 
 @Controller()
 export class AppController {
-  constructor(private appService: AppService) {
-    console.log('Controller done');
-  }
-
-  @Get('/hi')
-  hi() {
-    return 'hi';
+  constructor(@Inject('PrismaClientExtended') prisma: PrismaServiceExtended) {
+    console.log('Prisma.environment', prisma.environment);
   }
 }

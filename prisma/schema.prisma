@@ -1,0 +1,18 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = []
+  binaryTargets   = ["native", "darwin", "darwin-arm64"]
+  engineType      = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Environment {
+  id        String @id @db.VarChar
+  projectId String @map("project_id") @db.VarChar
+
+  @@map("environment")
+}

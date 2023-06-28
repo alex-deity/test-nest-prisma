@@ -1,16 +1,15 @@
-generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = []
-}
-
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 model Environment {
-  id        String @id @db.VarChar
-  projectId String @map("project_id") @db.VarChar
+  id   String @id
+  name String
 
   @@map("environment")
 }

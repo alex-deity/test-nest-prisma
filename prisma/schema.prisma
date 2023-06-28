@@ -1,8 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = []
-  binaryTargets   = ["native", "darwin", "darwin-arm64"]
-  engineType      = "binary"
 }
 
 datasource db {
